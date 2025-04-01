@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import * as os from "node:os";
 
 /**
  * Read environment variables from file.
@@ -23,7 +24,31 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
  // reporter: 'html',
- reporter: [["line"], ["allure-playwright"],['html']],
+ reporter: [["line"],
+  [
+    
+      "allure-playwright",
+        {
+          resultsDir: "allure-results",
+          detail: true,
+          suiteTitle: true,
+          categories: [
+            {
+              name: "UI Test",
+              messageRegex: "bar",
+              traceRegex: "baz",
+           
+            },
+          ],
+          environmentInfo: {
+            os_platform: os.platform(),
+            os_release: os.release(),
+            os_version: os.version(),
+          },
+        } 
+],
+  
+  ['html']],
   /* Timeout*/
    timeout: 120_000,
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
