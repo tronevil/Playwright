@@ -8,12 +8,10 @@ pipeline {
            
          }
       }
-   }
-   	stages {
-    	stage('Deploy Playwight') {
+    	stage('Deploy Playwight and Generate HTML report') {
         	steps {
             	publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, icon: '', keepAll: false, reportDir: '', reportFiles: 'index.html', reportName: 'TronReport', reportTitles: '', useWrapperFileDirectly: true])
         	}
     	}
-	}
+   }
 }
