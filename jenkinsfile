@@ -5,21 +5,8 @@ pipeline {
          steps {
             sh 'npm ci'
             sh 'npx playwright test'
-            script{
-                doDynamicParallelTestSteps()
-            }
+           
          }
       }
    }
-}
-def doDynamicParallelTestSteps() {
-publishHTML([
-    allowMissing: false,
-    alwaysLinkToLastBuild: true,
-    keepAll: true,
-    reportDir: 'HTML_20Report',
-    reportFiles: "index${shardNum}.html",
-    reportName: "shard ${shardNum}",
-    reportTitles: "title ${shardNum}"
-])
 }
