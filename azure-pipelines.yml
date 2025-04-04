@@ -16,6 +16,10 @@ steps:
     version: '8.0.x'
   displayName: 'Use .NET SDK'
 - script: dotnet build --configuration Release
+  displayName: 'Run Playwright test'
+- script: npx playwright test
+  displayName: 'Generate report '
+- script: npx playwright show-report
   displayName: 'Build'
 - script: pwsh bin/Release/net8.0/playwright.ps1 install --with-deps
   displayName: 'Install Playwright browsers'
