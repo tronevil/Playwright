@@ -13,7 +13,10 @@ steps:
 - task: UseDotNet@2
   inputs:
     packageType: sdk
-
+- script: npm ci
+  displayName: 'npm ci'
+- script: npx playwright install --with-deps
+  displayName: 'Install Playwright browsers'
 - script: npx playwright test
   displayName: 'Run Playwright test'
 - script: npx playwright show-report
