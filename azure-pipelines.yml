@@ -22,7 +22,7 @@ steps:
   displayName: 'Run Playwright test'
  
  # Generate HTML report as Artifact on Azure pineline 
-- task: GenerateReportPublishPipelineArtifact@1
+- task: PublishPipelineArtifact@1
   inputs:
     targetPath: playwright-report
     artifact: playwright-report
