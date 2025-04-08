@@ -19,7 +19,5 @@ steps:
   displayName: 'Install Playwright browsers'
 - script: npx playwright test
   displayName: 'Run Playwright test'
-- script: npx playwright show-report
-  displayName: 'Generate report '
 - script: pwsh bin/Release/net8.0/playwright.ps1 install --with-deps
   displayName: 'Build'
