@@ -26,8 +26,8 @@ export default defineConfig({
  // reporter: 'html',
  reporter: [["line"],
   [
-    
-      "allure-playwright",
+  //add Alure report   
+      "AllureReport-playwright",
         {
           resultsDir: "allure-results",
           detail: true,
