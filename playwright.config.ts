@@ -50,15 +50,16 @@ export default defineConfig({
   
   ['html'],['junit', {outputFile: 'results.xml'}]],
   /* Timeout*/
-   timeout: 120_000,
+   timeout: 60_000,
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    // baseURL: 'http://127.0.0.1:3000',
+     baseURL: 'https://demoqa.com/',
+     screenshot: 'on',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     
-    trace: 'on-first-retry',
+    trace:'on-first-retry',
   },
 
   /* Configure projects for major browsers */
@@ -67,13 +68,13 @@ export default defineConfig({
       name: 'Chrome',
       use: { ...devices['Desktop Chrome'] },
     },
-
+ /* 
     {
       name: 'Firefox',
       use: { ...devices['Desktop Firefox'] },
     },
 
-   /* {
+  {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },*/
